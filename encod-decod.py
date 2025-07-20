@@ -793,12 +793,13 @@ def main():
     args = parse_args()
     
     # Configure logging
+    os.makedirs("logging", exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler(f'transformer_training_{datetime.now():%Y%m%d_%H%M%S}.log')
+            logging.FileHandler(f'logging/transformer_training_{datetime.now():%Y%m%d_%H%M%S}.log')
         ]
     )
 
